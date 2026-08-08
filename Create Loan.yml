@@ -1,0 +1,190 @@
+info:
+  name: Create Loan
+  type: http
+  seq: 14
+
+http:
+  method: POST
+  url: http://localhost:8000/api/loan/create
+  headers:
+    - name: Authorization
+      value: "{{token}}"
+      disabled: true
+  body:
+    type: json
+    data: |-
+      {
+        "bookId": "6a23c8f11d3d2c21759c40b5",
+        "memberId": "6a76b21df39f3b889f4393ed",
+        "notes": "Coba buat pinjaman"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTQyNjU4YTU2MWNlYWY5MTRjNzQxMWUiLCJpYXQiOjE3ODYxNjI3MTgsImV4cCI6MTc4NjI0OTExOH0.sZGaPMAZJK-dloKvU_y0YpU0V6lYgAaUmoVUSbg418I
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: http://localhost:8000/api/member/create
+      method: POST
+      headers:
+        - name: Authorization
+          value: "{{token}}"
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "nim": "2002918222",
+            "phone": "081915124888",
+            "prodi": "informatika"
+          }
+    response:
+      status: 201
+      statusText: Created
+      headers:
+        - name: content-security-policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: cross-origin-opener-policy
+          value: same-origin
+        - name: cross-origin-resource-policy
+          value: same-origin
+        - name: origin-agent-cluster
+          value: ?1
+        - name: referrer-policy
+          value: no-referrer
+        - name: strict-transport-security
+          value: max-age=31536000; includeSubDomains
+        - name: x-content-type-options
+          value: nosniff
+        - name: x-dns-prefetch-control
+          value: off
+        - name: x-download-options
+          value: noopen
+        - name: x-frame-options
+          value: SAMEORIGIN
+        - name: x-permitted-cross-domain-policies
+          value: none
+        - name: x-xss-protection
+          value: "0"
+        - name: ratelimit-policy
+          value: 10;w=900
+        - name: ratelimit-limit
+          value: "10"
+        - name: ratelimit-remaining
+          value: "9"
+        - name: ratelimit-reset
+          value: "900"
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "316"
+        - name: etag
+          value: W/"13c-d+7SBSu9ODKWowMd8WnV0mZuhcI"
+        - name: date
+          value: Sat, 08 Aug 2026 04:14:56 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+            "success": true,
+            "message": "Anggota berhasil ditambahkan",
+            "data": {
+              "nim": "2002918222",
+              "name": "Admin Utama",
+              "email": "admin@library.com",
+              "phone": "081915124888",
+              "prodi": "informatika",
+              "status": "Active",
+              "_id": "6a76ad4068a1acb40bbc8dcd",
+              "createdAt": "2026-08-08T04:14:56.024Z",
+              "updatedAt": "2026-08-08T04:14:56.024Z",
+              "__v": 0
+            }
+          }
+  - name: example error
+    request:
+      url: http://localhost:8000/api/member/create
+      method: POST
+      headers:
+        - name: Authorization
+          value: "{{token}}"
+          disabled: true
+      body:
+        type: json
+        data: |-
+          {
+            "nim": "2002918222",
+            "phone": "081915124888",
+            "prodi": ""
+          }
+    response:
+      status: 422
+      statusText: Unprocessable Entity
+      headers:
+        - name: content-security-policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: cross-origin-opener-policy
+          value: same-origin
+        - name: cross-origin-resource-policy
+          value: same-origin
+        - name: origin-agent-cluster
+          value: ?1
+        - name: referrer-policy
+          value: no-referrer
+        - name: strict-transport-security
+          value: max-age=31536000; includeSubDomains
+        - name: x-content-type-options
+          value: nosniff
+        - name: x-dns-prefetch-control
+          value: off
+        - name: x-download-options
+          value: noopen
+        - name: x-frame-options
+          value: SAMEORIGIN
+        - name: x-permitted-cross-domain-policies
+          value: none
+        - name: x-xss-protection
+          value: "0"
+        - name: ratelimit-policy
+          value: 10;w=900
+        - name: ratelimit-limit
+          value: "10"
+        - name: ratelimit-remaining
+          value: "8"
+        - name: ratelimit-reset
+          value: "878"
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "106"
+        - name: etag
+          value: W/"6a-oGGE+2+37tPLDUPtyuayIWzapS8"
+        - name: date
+          value: Sat, 08 Aug 2026 04:19:00 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+            "message": "Validasi gagal",
+            "errors": [
+              {
+                "field": "prodi",
+                "message": "\"prodi\" is not allowed to be empty"
+              }
+            ]
+          }

@@ -1,0 +1,101 @@
+info:
+  name: Login
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: http://localhost:8000/api/auth/login
+  body:
+    type: json
+    data: |-
+      {
+        "email": "floy.glover2@yahoo.com",
+        "password":"password123"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: example
+    request:
+      url: http://localhost:8000/api/auth/login
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "email": "floy.glover2@yahoo.com",
+            "password":"password123"
+          }
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: content-security-policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: cross-origin-opener-policy
+          value: same-origin
+        - name: cross-origin-resource-policy
+          value: same-origin
+        - name: origin-agent-cluster
+          value: ?1
+        - name: referrer-policy
+          value: no-referrer
+        - name: strict-transport-security
+          value: max-age=31536000; includeSubDomains
+        - name: x-content-type-options
+          value: nosniff
+        - name: x-dns-prefetch-control
+          value: off
+        - name: x-download-options
+          value: noopen
+        - name: x-frame-options
+          value: SAMEORIGIN
+        - name: x-permitted-cross-domain-policies
+          value: none
+        - name: x-xss-protection
+          value: "0"
+        - name: ratelimit-policy
+          value: 10;w=900
+        - name: ratelimit-limit
+          value: "10"
+        - name: ratelimit-remaining
+          value: "9"
+        - name: ratelimit-reset
+          value: "900"
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "442"
+        - name: etag
+          value: W/"1ba-DwjEAgwDwd/gXt5Xm/FXOnE+UgA"
+        - name: date
+          value: Sat, 08 Aug 2026 22:44:15 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+            "success": true,
+            "message": "Login berhasil",
+            "user": {
+              "_id": "6a42658a561ceaf914c7411e",
+              "name": "Edward Ratke",
+              "email": "floy.glover2@yahoo.com",
+              "role": "member",
+              "deletedAt": null,
+              "__v": 0,
+              "createdAt": "2026-06-29T12:31:06.868Z",
+              "updatedAt": "2026-06-29T12:31:06.868Z"
+            },
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTQyNjU4YTU2MWNlYWY5MTRjNzQxMWUiLCJpYXQiOjE3ODYyMjkwNTUsImV4cCI6MTc4NjMxNTQ1NX0.IS8khqx8L00ZQyu_JttJ-Vh5ow9HKmU45HQ7wHg0O9k"
+          }

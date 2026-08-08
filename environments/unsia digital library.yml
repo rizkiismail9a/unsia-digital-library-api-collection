@@ -1,0 +1,8 @@
+name: unsia digital library
+variables:
+  - secret: true
+    name: token
+    description: ""
+  - secret: true
+    name: tokenAdmin
+    description: ""
