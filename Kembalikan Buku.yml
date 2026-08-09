@@ -1,12 +1,14 @@
 info:
-  name: Get Statistic Dashboard
+  name: Kembalikan Buku
   type: http
-  seq: 17
+  seq: 18
 
 http:
-  method: GET
-  url: http://localhost:8000/api/statistics
-  auth: inherit
+  method: PUT
+  url: http://localhost:8000/api/loan/6a76b9a0cf45fbbe7c356411/return
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 settings:
   encodeUrl: true
@@ -17,12 +19,14 @@ settings:
 examples:
   - name: example
     request:
-      url: http://localhost:8000/api/statistics
-      method: GET
+      url: http://localhost:8000/api/loan/6a76b9a0cf45fbbe7c356411/return
+      method: PUT
     response:
       status: 200
       statusText: OK
       headers:
+        - name: vary
+          value: Origin
         - name: content-security-policy
           value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
         - name: cross-origin-opener-policy
@@ -50,11 +54,11 @@ examples:
         - name: content-type
           value: application/json; charset=utf-8
         - name: content-length
-          value: "128"
+          value: "485"
         - name: etag
-          value: W/"80-0PMXOM7K5bCPGdEgBAKMpx8u7EQ"
+          value: W/"1e5-HkA97vH+ZkcNExNC5Egr3hHE2MY"
         - name: date
-          value: Sun, 09 Aug 2026 00:54:46 GMT
+          value: Sun, 09 Aug 2026 02:15:08 GMT
         - name: connection
           value: keep-alive
         - name: keep-alive
@@ -64,12 +68,20 @@ examples:
         data: |-
           {
             "success": true,
+            "message": "Buku berhasil dikembalikan",
             "data": {
-              "totalBooks": 25,
-              "totalMembers": 2,
-              "totalLoans": 2,
-              "activeLoans": 2,
-              "returnedLoans": 0,
-              "availableBooks": 597
+              "_id": "6a76b9a0cf45fbbe7c356411",
+              "book": "6a23c8f11d3d2c21759c40b5",
+              "member": "6a76b21df39f3b889f4393ed",
+              "dueDate": "2026-08-15T05:07:44.800Z",
+              "returnDate": "2026-08-09T02:15:08.408Z",
+              "status": "Returned",
+              "notes": "Coba buat pinjaman",
+              "createdBy": "6a42658a561ceaf914c7411e",
+              "borrowDate": "2026-08-08T05:07:44.806Z",
+              "createdAt": "2026-08-08T05:07:44.813Z",
+              "updatedAt": "2026-08-09T02:15:08.429Z",
+              "loanCode": "TRX-664814299",
+              "__v": 0
             }
           }
