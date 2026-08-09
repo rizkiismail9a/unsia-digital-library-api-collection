@@ -1,7 +1,7 @@
 info:
   name: Get All Loans
   type: http
-  seq: 15
+  seq: 16
 
 http:
   method: GET

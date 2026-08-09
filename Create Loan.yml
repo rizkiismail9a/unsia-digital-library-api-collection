@@ -1,7 +1,7 @@
 info:
   name: Create Loan
   type: http
-  seq: 14
+  seq: 15
 
 http:
   method: POST
@@ -20,7 +20,7 @@ http:
       }
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTQyNjU4YTU2MWNlYWY5MTRjNzQxMWUiLCJpYXQiOjE3ODYxNjI3MTgsImV4cCI6MTc4NjI0OTExOH0.sZGaPMAZJK-dloKvU_y0YpU0V6lYgAaUmoVUSbg418I
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

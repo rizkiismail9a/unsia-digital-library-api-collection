@@ -1,7 +1,7 @@
 info:
   name: Get Statistic Dashboard
   type: http
-  seq: 17
+  seq: 18
 
 http:
   method: GET
