@@ -1,7 +1,7 @@
 info:
   name: Create Member
   type: http
-  seq: 13
+  seq: 12
 
 http:
   method: POST
@@ -14,13 +14,13 @@ http:
     type: json
     data: |-
       {
-        "nim": "2009882012",
+        "nim": "240401010126",
         "phone": "081915124888",
-        "prodi": "sistem informasi"
+        "prodi": "informatika"
       }
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2YTQyNjU4YTU2MWNlYWY5MTRjNzQxMWUiLCJpYXQiOjE3ODYxNjI3MTgsImV4cCI6MTc4NjI0OTExOH0.sZGaPMAZJK-dloKvU_y0YpU0V6lYgAaUmoVUSbg418I
+    token: "{{tokenAdmin}}"
 
 settings:
   encodeUrl: true

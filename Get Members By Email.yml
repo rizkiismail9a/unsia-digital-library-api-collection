@@ -1,7 +1,7 @@
 info:
   name: Get Members By Email
   type: http
-  seq: 14
+  seq: 13
 
 http:
   method: GET
@@ -12,7 +12,7 @@ http:
       disabled: true
   auth:
     type: bearer
-    token: "{{tokenAdmin}}"
+    token: "{{token}}"
 
 settings:
   encodeUrl: true

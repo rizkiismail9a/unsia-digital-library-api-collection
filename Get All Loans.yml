@@ -1,7 +1,7 @@
 info:
   name: Get All Loans
   type: http
-  seq: 16
+  seq: 15
 
 http:
   method: GET
@@ -12,7 +12,7 @@ http:
       disabled: true
   auth:
     type: bearer
-    token: "{{token}}"
+    token: "{{tokenAdmin}}"
 
 settings:
   encodeUrl: true
@@ -21,75 +21,6 @@ settings:
   maxRedirects: 5
 
 examples:
-  - name: example
-    request:
-      url: http://localhost:8000/api/member
-      method: GET
-      headers:
-        - name: Authorization
-          value: "{{token}}"
-          disabled: true
-    response:
-      status: 200
-      statusText: OK
-      headers:
-        - name: content-security-policy
-          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-        - name: cross-origin-opener-policy
-          value: same-origin
-        - name: cross-origin-resource-policy
-          value: same-origin
-        - name: origin-agent-cluster
-          value: ?1
-        - name: referrer-policy
-          value: no-referrer
-        - name: strict-transport-security
-          value: max-age=31536000; includeSubDomains
-        - name: x-content-type-options
-          value: nosniff
-        - name: x-dns-prefetch-control
-          value: off
-        - name: x-download-options
-          value: noopen
-        - name: x-frame-options
-          value: SAMEORIGIN
-        - name: x-permitted-cross-domain-policies
-          value: none
-        - name: x-xss-protection
-          value: "0"
-        - name: content-type
-          value: application/json; charset=utf-8
-        - name: content-length
-          value: "287"
-        - name: etag
-          value: W/"11f-wujRhBYtiu8PwGesKAImfjC6Up8"
-        - name: date
-          value: Sat, 08 Aug 2026 04:15:17 GMT
-        - name: connection
-          value: keep-alive
-        - name: keep-alive
-          value: timeout=5
-      body:
-        type: json
-        data: |-
-          {
-            "success": true,
-            "count": 1,
-            "data": [
-              {
-                "_id": "6a76ad4068a1acb40bbc8dcd",
-                "nim": "2002918222",
-                "name": "Admin Utama",
-                "email": "admin@library.com",
-                "phone": "081915124888",
-                "prodi": "informatika",
-                "status": "Active",
-                "createdAt": "2026-08-08T04:14:56.024Z",
-                "updatedAt": "2026-08-08T04:14:56.024Z",
-                "__v": 0
-              }
-            ]
-          }
   - name: example error bukan admin
     request:
       url: http://localhost:8000/api/loan
@@ -144,4 +75,218 @@ examples:
           {
             "success": false,
             "message": "Akses hanya untuk admin"
+          }
+  - name: example
+    request:
+      url: http://localhost:8000/api/loan
+      method: GET
+      headers:
+        - name: Authorization
+          value: "{{token}}"
+          disabled: true
+    response:
+      status: 200
+      statusText: OK
+      headers:
+        - name: vary
+          value: Origin
+        - name: content-security-policy
+          value: "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+        - name: cross-origin-opener-policy
+          value: same-origin
+        - name: cross-origin-resource-policy
+          value: same-origin
+        - name: origin-agent-cluster
+          value: ?1
+        - name: referrer-policy
+          value: no-referrer
+        - name: strict-transport-security
+          value: max-age=31536000; includeSubDomains
+        - name: x-content-type-options
+          value: nosniff
+        - name: x-dns-prefetch-control
+          value: off
+        - name: x-download-options
+          value: noopen
+        - name: x-frame-options
+          value: SAMEORIGIN
+        - name: x-permitted-cross-domain-policies
+          value: none
+        - name: x-xss-protection
+          value: "0"
+        - name: content-type
+          value: application/json; charset=utf-8
+        - name: content-length
+          value: "3557"
+        - name: etag
+          value: W/"de5-b0I5o/VLpwGdilRSJOPFET9m7no"
+        - name: date
+          value: Mon, 10 Aug 2026 04:45:54 GMT
+        - name: connection
+          value: keep-alive
+        - name: keep-alive
+          value: timeout=5
+      body:
+        type: json
+        data: |-
+          {
+            "success": true,
+            "count": 5,
+            "data": [
+              {
+                "_id": "6a792d50e4de6b08fe8ad872",
+                "book": {
+                  "_id": "6a77feafd403fe424cedfd5d",
+                  "title": "crastinus eius deleo inflammatio vomito",
+                  "author": "Troy Wisoky",
+                  "isbn": "7986618524106"
+                },
+                "member": {
+                  "_id": "6a792c96e4de6b08fe8ad871",
+                  "nim": "0234567429102",
+                  "name": "Mulyono",
+                  "email": "mulyono@mailnesia.com",
+                  "phone": "+62 891 900 887",
+                  "prodi": "Ekonomi"
+                },
+                "dueDate": "2026-08-17T01:45:52.072Z",
+                "returnDate": null,
+                "status": "Borrowed",
+                "notes": "Buku dipinjam pada 10/8/2026",
+                "createdBy": {
+                  "_id": "6a792bc7e68e5f444298f80e",
+                  "name": "Mulyono",
+                  "email": "mulyono@mailnesia.com"
+                },
+                "borrowDate": "2026-08-10T01:45:52.073Z",
+                "createdAt": "2026-08-10T01:45:52.074Z",
+                "updatedAt": "2026-08-10T01:45:52.074Z",
+                "loanCode": "TRX-352074239",
+                "__v": 0
+              },
+              {
+                "_id": "6a7885222bf4e36f03c99d44",
+                "book": {
+                  "_id": "6a77feafd403fe424cedfd65",
+                  "title": "aperte thymbra suggero aqua",
+                  "author": "Marlene Fritsch",
+                  "isbn": "5195243596945"
+                },
+                "member": {
+                  "_id": "6a78851a2bf4e36f03c99d43",
+                  "nim": "2876198729",
+                  "name": "Kadin Wilkinson",
+                  "email": "mandy96@yahoo.com",
+                  "phone": "+62 928 822318",
+                  "prodi": "Management"
+                },
+                "dueDate": "2026-08-16T13:48:18.905Z",
+                "returnDate": "2026-08-09T13:55:40.154Z",
+                "status": "Returned",
+                "notes": "Buku dipinjam pada 9/8/2026",
+                "createdBy": {
+                  "_id": "6a7826251681f6f3b13fb304",
+                  "name": "Kadin Wilkinson",
+                  "email": "mandy96@yahoo.com"
+                },
+                "borrowDate": "2026-08-09T13:48:18.906Z",
+                "createdAt": "2026-08-09T13:48:18.906Z",
+                "updatedAt": "2026-08-09T13:55:40.155Z",
+                "loanCode": "TRX-298906547",
+                "__v": 0
+              },
+              {
+                "_id": "6a78822a2bf4e36f03c99d42",
+                "book": {
+                  "_id": "6a77feafd403fe424cedfd5d",
+                  "title": "crastinus eius deleo inflammatio vomito",
+                  "author": "Troy Wisoky",
+                  "isbn": "7986618524106"
+                },
+                "member": {
+                  "_id": "6a78330cf3477286459bb8c9",
+                  "nim": "240401010126",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com",
+                  "phone": "+62 443 33333",
+                  "prodi": "informatika"
+                },
+                "dueDate": "2026-08-16T13:35:38.713Z",
+                "returnDate": null,
+                "status": "Borrowed",
+                "notes": "Buku dipinjam pada 9/8/2026",
+                "createdBy": {
+                  "_id": "6a7826251681f6f3b13fb301",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com"
+                },
+                "borrowDate": "2026-08-09T13:35:38.719Z",
+                "createdAt": "2026-08-09T13:35:38.723Z",
+                "updatedAt": "2026-08-09T13:35:38.723Z",
+                "loanCode": "TRX-538724593",
+                "__v": 0
+              },
+              {
+                "_id": "6a78801389404df59b967944",
+                "book": {
+                  "_id": "6a77feafd403fe424cedfd5d",
+                  "title": "crastinus eius deleo inflammatio vomito",
+                  "author": "Troy Wisoky",
+                  "isbn": "7986618524106"
+                },
+                "member": {
+                  "_id": "6a78330cf3477286459bb8c9",
+                  "nim": "240401010126",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com",
+                  "phone": "+62 443 33333",
+                  "prodi": "informatika"
+                },
+                "dueDate": "2026-08-16T13:26:43.815Z",
+                "returnDate": null,
+                "status": "Returned",
+                "notes": "Buku dipinjam pada 9/8/2026",
+                "createdBy": {
+                  "_id": "6a7826251681f6f3b13fb301",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com"
+                },
+                "borrowDate": "2026-08-09T13:26:43.820Z",
+                "createdAt": "2026-08-09T13:26:43.825Z",
+                "updatedAt": "2026-08-09T13:26:43.825Z",
+                "loanCode": "TRX-003826389",
+                "__v": 0
+              },
+              {
+                "_id": "6a787d386a1ce076944b9cc9",
+                "book": {
+                  "_id": "6a77feafd403fe424cedfd5e",
+                  "title": "antepono vociferor",
+                  "author": "Ivy Stroman",
+                  "isbn": "2490635209656"
+                },
+                "member": {
+                  "_id": "6a78330cf3477286459bb8c9",
+                  "nim": "240401010126",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com",
+                  "phone": "+62 443 33333",
+                  "prodi": "informatika"
+                },
+                "dueDate": "2026-08-16T13:14:32.273Z",
+                "returnDate": null,
+                "status": "Borrowed",
+                "notes": "Buku dipinjam pada 9/8/2026",
+                "createdBy": {
+                  "_id": "6a7826251681f6f3b13fb301",
+                  "name": "Steve Hilpert",
+                  "email": "avery_mante@hotmail.com"
+                },
+                "borrowDate": "2026-08-09T13:14:32.276Z",
+                "createdAt": "2026-08-09T13:14:32.281Z",
+                "updatedAt": "2026-08-09T13:14:32.281Z",
+                "loanCode": "TRX-272282147",
+                "__v": 0
+              }
+            ]
           }
